@@ -1,43 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Email Verification</title>
+  <title>Verifikasi Email Berhasil</title>
   <style>
+    :root {
+      --primary: #ffb800;
+      --dark: #222;
+      --light: #fff;
+      --gray: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #00b4d8, #0077b6);
-      color: #fff;
+      background: linear-gradient(180deg, #fff, #f7f7f7);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: var(--light);
+      width: 100%;
+      max-width: 420px;
+      padding: 30px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       text-align: center;
-      padding: 50px;
     }
-    .box {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 10px;
-      display: inline-block;
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-weight: 700;
+      color: white;
+      font-size: 20px;
     }
+
     h1 {
-      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
     }
+
     p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .success-icon {
+      font-size: 48px;
+      color: #22c55e;
+      margin: 20px 0;
+    }
+
+    .button {
+      background-color: var(--primary);
+      color: white;
       font-size: 16px;
-      color: #e0f7fa;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #e0a800;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>✅ Email Verified!</h1>
-    <p>Thank you for verifying your email. You can now return to the app.</p>
+  <div class="container">
+    <div class="logo">AUTO</div>
+    <div class="success-icon">✅</div>
+    <h1>Verifikasi Email Berhasil!</h1>
+    <p>Terima kasih telah memverifikasi alamat email Anda.<br>
+    Anda sekarang bisa kembali ke aplikasi dan mulai menggunakan akun Anda.</p>
+    <button class="button" onclick="closeTab()">Tutup Halaman</button>
   </div>
+
   <script>
-    setTimeout(() => {
-      window.location.href = "myapp://verification-success";
-      // ganti "myapp://" dengan deep link yang kamu daftarkan di Flutter
-    }, 1500);
+    function closeTab() {
+      window.open('', '_self', '');
+      window.close();
+    }
   </script>
 </body>
 </html>
-
